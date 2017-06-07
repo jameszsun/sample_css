@@ -1,7 +1,24 @@
 <head>
-  <title>Test Page: Don't Panic</title>
+  {% if page.title %}
+    <title>{{ page.title }} | Test Page</title>
+  {% else %}
+    <title>Learn Enough CSS</title>
+  {% endif %}
+  {% if page.description %}
+    <meta name="description" content="{{ page.description }}">
+  {% else %}
+    <meta name="description" content="This is a dangerous site.">
+  {% endif %}
+  <link rel="icon" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Learn Enough CSS"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="http://localhost:4000"/>
+  <meta property="og:description" content="This is a website from Learn Enough">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway:100|Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="/fonts/font-awesome-4.7.0/css/font-awesome.css">
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/main.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>

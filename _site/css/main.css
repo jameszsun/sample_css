@@ -1,67 +1,22 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center, dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend, table, caption,
-tbody, tfoot, thead, tr, th, td, article, aside,
-canvas, details, embed, figure, figcaption, footer,
-header, hgroup, menu, nav, output, ruby, section,
-summary, time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  line-height: 1;
-}
-.content-container {
-  display: flex;
-  flex: 1 1 auto;
-  padding-top: 10vh;
-  width: 100%;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-strong, b {
-  font-weight: bold;
-}
-em, i {
-  font-style: italic;
-}
-a img {
-  border: none;
-}
-/* END RESET*/
-
 /* GLOBAL STYLES */
 html {
   box-shadow: 0 0 0 30px #000 inset;
   padding: 0 30px;
 }
 body {
-  font-family: helvetica, arial, sans;
+  font-family: 'Open Sans', helvetica, arial, sans;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.content-container {
+  flex-grow: 1;
+  padding-top: 10vh;
+  width: 100%;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Raleway', helvetica, sans;
+  font-weight: 100;
 }
 h1 {
   font-size: 7vw;
@@ -344,6 +299,12 @@ h4 {
   border-color: transparent transparent #ed6e2f ;
 }
 
+/* MOBILE MENU */
+.mobile-menu-check,
+.show-mobile-menu {
+  display: none;
+}
+
 /* FOOTER STYLES */
 .footer {
   background-color: #000;
@@ -444,15 +405,15 @@ h4 {
   color: #fff;
   display: inline-block;
   font-family: helvetica, arial, sans;
-  font-size: 1em;
+  font-size: 1.7em;
   font-weight: bold;
-  height: 2.5em;
+  height: 1.5em;
   line-height: 1;
-  padding-top: 0.85em;
+  padding-top: 0.25em;
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
-  width: 2.5em;
+  width: 1.5em;
 }
 .social-list > li {
   display: inline-block;
@@ -610,6 +571,7 @@ h4 {
   width: 33%;
 }
 .bio-box h3 {
+  font-family: 'Roboto', helvetica, sans;
   color: #fff;
   font-size: 1.5em;
   margin: -40px 0 1em;
@@ -675,6 +637,60 @@ h4 {
   .header-logo {
     left: auto;
   }
+
+  /* MOBILE MENU */
+  .show-mobile-menu {
+    display: block;
+    float: right;
+    padding: 1.5em;
+    position: relative;
+    margin-top: 1.5vh
+  }
+  .header-nav {
+    background-color: #444;
+    box-sizing: border-box;
+    left: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 0 0 0;
+    position: absolute;
+    text-align: center;
+    top: 10vh;
+    transition: all 0.5s ease-in-out;
+    width: 100vw;
+    z-index: 9;
+  }
+  .mobile-menu-check:checked ~ .header-nav {
+    max-height: 90vh;
+  }
+  .mobile-menu-check:checked ~ .show-mobile-menu:after {
+    background-color: #000;
+    color: #ed6e2f;
+    content: "CLOSE";
+    left: 0;
+    position: absolute;
+    top: 1.5em;
+    width: 100%;
+    text-align: center;
+  }
+  .header-nav li {
+    display: block;
+    margin-top: 1em;
+  }
+  .header-nav li:last-child {
+    margin-bottom: 1em;
+  }
+  .header-nav li:first-child a {
+    color: #fff;
+  }
+  .header-nav .drop-trigger {
+    padding-right: 0;
+  }
+  .header-nav .drop-menu:after,
+  .header-nav .drop-trigger:after {
+    display: none;
+  }
+
 
   /*Biobox Styles*/
   .bio-box {
